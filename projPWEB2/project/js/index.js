@@ -11,6 +11,14 @@ $(function () {
         //setFrm(cadUsuario);   
     });
 
+    $("#menuCadMateriais").click(function () {
+        getFrm(base_url+"view/Materiais/Cadastrar.php");
+    });
+
+    $("#menuConsultarMateriais").click(function () {
+        getFrm(base_url+"view/Materiais/Index.php");  
+    });
+
     function getFrm(url) {
         //var ret = null;
 

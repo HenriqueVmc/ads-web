@@ -1,12 +1,10 @@
 <?php
     
+    //include_once '/gentelella/project/model/Usuarios.php';
+    //include_once '/gentelella/project/DAO/usuariosDAO.php';
+
     include_once 'C:\xampp\htdocs\gentelella\project\model\Usuarios.php';
     include_once 'C:\xampp\htdocs\gentelella\project\DAO\usuariosDAO.php';
-    
-    //require_once ('C:\xampp\htdocs\gentelella\project\model\Usuarios.php');
-    //require_once ('C:\xampp\htdocs\gentelella\project\DAO\usuariosDAO.php');
-    //require_once ('C:\xampp\htdocs\gentelella\project\DAO\conexao.php');
-
     class UsuariosController{
 
 		function __construct(){
@@ -36,11 +34,24 @@
         }
 
         public function buscarTodos(){
-            $usuarios = array();
-            $usuarioDAO = new usuariosDAO();
-            $usuarios = $usuarioDAO->findAll();
             
-            return $usuarios;
+            $retorno = [];
+            $usuarioDAO = new usuariosDAO();
+            $usuarios = $usuarioDAO->findAll();  
+
+            foreach($usuarios as $registro){
+                $usuario = new Usuarios();
+                $usuario->setId($registro['Id']);
+                $usuario->setNome($registro['Nome']);
+                $usuario->setCep($registro['Cep']);
+                $usuario->setEmail($registro['Email']);
+                $usuario->setUsuario($registro['Usuario']);                            
+                $usuario->setSenha($registro['Senha']);                
+
+                $retorno[] = $usuario;
+            }
+    
+            return $retorno;
         }
 
         public function buscarPorId($cod){

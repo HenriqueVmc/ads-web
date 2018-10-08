@@ -1,7 +1,9 @@
 <?php
 
     include_once 'C:\xampp\htdocs\gentelella\project\controller\Usuarios.php';
+    //include_once '/gentelella/project/controller/Usuarios.php';
     include_once 'C:\xampp\htdocs\gentelella\project\model\Usuarios.php';
+    //include_once '/gentelella/project/model/Usuarios.php';
     
     $nome = $_POST['Nome'];
     $cep = $_POST['Cep'];
@@ -28,5 +30,9 @@
         }
 
         echo json_encode($response);
+    }
+
+    else if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "editar"){
+        
     }
 ?>

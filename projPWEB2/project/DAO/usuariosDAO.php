@@ -1,6 +1,7 @@
 <?php
     include_once 'conexao.php';
     include_once 'C:\xampp\htdocs\gentelella\project\model\Usuarios.php';
+    //include_once '/gentelella/project/model/Usuarios.php';
 
 	class usuariosDAO{
 		public $_con;
@@ -17,6 +18,8 @@
             
             $pst = $this->_con->prepare($select);
             $pst->execute();
+
+            //die(var_dump($r, $pst->errorInfo()));
 
             if($pst->rowCount() > 0){
                 $result = $pst->fetchAll();
@@ -39,17 +42,21 @@
         }
        
         public function insert($usuario){
-            $insert = "INSERT INTO usuarios (Nome, Cep, Email, Usuario, Senha, PerfilId)";		
-            $insert += " VALUES ('?', '?', '?', '?', '?', ?)";
+
+          
+
+            $insert = "INSERT INTO usuarios (Nome, Cep, Email, Usuario, Senha, PerfilId) VALUES (?, ?, ?, ?, ?, ?)";
 
             $pst = $this->_con->prepare($insert);
             $pst->execute(array($usuario->getNome(),
                                 $usuario->getCep(),
                                 $usuario->getEmail(),
                                 $usuario->getUsuario(),
-                                $usuario->getSenha(),
-                                1));
+                                $usuario->getSenha(), 
+                                1
+                            ));
 
+                                
             if($pst->rowCount() > 0){
                 return true;
             }

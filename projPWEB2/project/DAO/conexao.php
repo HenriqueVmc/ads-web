@@ -6,7 +6,8 @@
 		
 		function __construct(){
 			//mysql://[USUARIO]:[PASSWORD]@[HOST]/[NOME DO BANCO]
-			$this->_conn = new PDO("mysql://root@localhost/dbEnvelhecimentoAtivo");//mysql:host=localhost:81;dbname=dbEnvelhecimentoAtivo","root","hvmc1899"			
+			$this->_conn = new PDO("mysql:host=localhost;dbname=dbenvelhecimentoativo","root","");//	
+			$this->_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 
 		public function getConexao(){

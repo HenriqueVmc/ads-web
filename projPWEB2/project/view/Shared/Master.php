@@ -82,10 +82,10 @@
                   </a>
                   <ul class="nav child_menu">
                     <li>
-                      <a id="menuUsuario" name="menuUsuario" href="#">...</a>
+                      <a id="menuCadMateriais" name="menuCadMateriais" href="#">Cadastrar</a>
                     </li>                     
                     <li>
-                      <a href="#level1_2">...</a>
+                      <a id="menuConsultarMateriais" name="menuConsultarMateriais" href="#">Consultar</a>
                     </li>
                   </ul>
                 </li>                
