@@ -1,9 +1,0 @@
-MANIPULANDO ARQUIVOS EM PHP
-
-    -> https://www.w3schools.com/php/php_file_upload.asp
-
-    -> http://php.net/manual/pt_BR/reserved.variables.files.php
-
-    -> https://stackoverflow.com/questions/19139434/php-move-a-file-into-a-different-folder-on-the-server
-
-    -> http://php.net/manual/en/function.move-uploaded-file.php
