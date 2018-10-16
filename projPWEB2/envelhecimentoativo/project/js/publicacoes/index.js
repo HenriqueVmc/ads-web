@@ -1,5 +1,5 @@
 $(function () {
-    var base_url = 'http://localhost:81/envelhecimentoativo/project/';
+    var base_url = 'http://localhost/envelhecimentoativo/project/';
 
     // debugger;
     // $("#btnCadPublicacao").click(function () {    

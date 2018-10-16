@@ -44,7 +44,7 @@ CREATE TABLE Materiais(Id INT NOT NULL AUTO_INCREMENT,
 					   Nome VARCHAR(100) NOT NULL,
                        Descricao VARCHAR(200),
                        DataEnvio DATETIME NOT NULL,
-                       Arquivo BLOB NOT NULL,
+                       Arquivo VARCHAR(300),
                        UsuarioId INT NOT NULL,
                        CONSTRAINT PKMateriais PRIMARY KEY(Id)
 );

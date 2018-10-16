@@ -1,12 +1,19 @@
 <?php
-     include_once 'C:\xampp\htdocs\envelhecimentoativo\project\controller\Usuarios.php';
-
+    //include_once '/envelhecimentoativo/project/controller/Usuarios.php';
+    include_once 'C:\xampp\htdocs\envelhecimentoativo\project\controller\Usuarios.php';
+    include_once 'C:\xampp\htdocs\envelhecimentoativo\project\controller\Profissionais.php';
+     
      if(isset($_POST['id'])){      
         
         $id = $_POST['id'];
-        $obj = new UsuariosController();    
-                            
+        $obj = new UsuariosController();            
+
         $usuario = $obj->buscarPorId($id);
+
+        if($usuario->getPerfilId() == 2){
+            $objP = new ProfissionaisController();    
+            $profissional = $objP->buscarPorUsuarioId($id);
+        }
      }
 ?>
 
@@ -55,14 +62,37 @@
                               </label>  
                               <select id="PerfilId" name="PerfilId" class="form-control">
                                  <option>...</option>
-                                 <option value="administrador">Administrador</option>
-                                 <option value="profissional">Profissional</option>
+                                 <option value="1">Administrador</option>
+                                 <option value="2">Profissional</option>
+                                 <option value="3">Comunidade</option>
                               </select>
                            </div>
 
                         </div>
                      </div>
                      <hr />
+                     <?php 
+                        if($usuario->getPerfilId() == 2){                                                         
+                            echo '<div class="row">';
+                                echo '<div class="form-group">';
+                                    echo '<div class="col-md-6 col-xs-6">';            
+                                        echo '<label class="control-label" for="Curso">Curso:
+                                                <span class="required">*</span>
+                                              </label>';            
+                                        echo '<input type="text" id="Curso" name="Curso" required="required" class="form-control" value = "'.$profissional->getCurso().'">';
+                                    echo '</div>';
+                                echo '<div class="col-md-6 col-xs-6">';
+                                    echo '<label class="control-label" for="Instituicao">Instituição:
+                                               <span class="required">*</span>
+                                          </label>';
+                                    echo '<input type="text" id="Instituicao" name="Instituicao" required="required" class="form-control" value = "'.$profissional->getInstituicao().'"/>';
+                                echo '</div>';
+                            echo '</div> </div><br/>';                            
+                        }else{
+                            echo '<input type="hidden" id="Curso" name="Curso" />';
+                            echo '<input type="hidden" id="Instituicao" name="Instituicao" />';
+                        }
+                    ?>         
                      <div class="panel panel-default">
                         <h4 class="text-center">Endereço:</h4>
                         <div class="panel-body">
@@ -72,7 +102,7 @@
                                     <label class="control-label" for="Cep">CEP:
                                     <span class="required">*</span>
                                     </label>            
-                                    <input type="text" id="Cep" name="Cep" required="required" class="form-control" value="<?php $usuario->getCep(); ?>">  
+                                    <input type="text" id="Cep" name="Cep" required="required" class="form-control" value="<?php $usuario->getCep(); ?>" />                                                  
                                  </div>
                                  <div class="col-md-6 col-xs-6">
                                     <label class="control-label" for="Rua">Rua:
@@ -101,7 +131,7 @@
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div>                              
                      <div class="ln_solid"></div>
                      <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12 form-group">

@@ -15,8 +15,6 @@
   <!-- Font Awesome -->
   <link href="/envelhecimentoativo/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-  <!-- bootstrap-wysiwyg -->
-  <link href="/envelhecimentoativo/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
   <!-- Select2 -->
   <link href="/envelhecimentoativo/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
 
@@ -135,18 +133,9 @@
                   else if($_SESSION['perfilId'] == 3){
                     //<!-- Materiais -->
                       echo '<li>
-                              <a>
-                                <i class="fa fa-upload"></i> Materiais
-                                <span class="fa fa-chevron-down"></span>
+                              <a id="menuConsultarMateriais" name="menuConsultarMateriais" href="#">
+                                <i class="fa fa-upload"></i> Consultar Materiais                                
                               </a>
-                              <ul class="nav child_menu">
-                                <li>
-                                  <a id="menuCadMateriais" name="menuCadMateriais" href="#">Cadastrar</a>
-                                </li>                     
-                                <li>
-                                  <a id="menuConsultarMateriais" name="menuConsultarMateriais" href="#">Consultar</a>
-                                </li>
-                              </ul>
                           </li>';                       
                 } 
 

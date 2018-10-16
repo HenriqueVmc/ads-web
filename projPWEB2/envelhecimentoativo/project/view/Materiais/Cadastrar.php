@@ -8,7 +8,7 @@
             <div class="x_content">
                <div class="col-md-3 col-xs-3"></div>
                <div class="col-md-6 col-sm-12 col-xs-6">
-                  <form id="frmCadMaterial" method="POST" action="/envelhecimentoativo/project/controller/recebeMaterial.php?act=salvar" data-parsley-validate class="form-horizontal justify-content-center">
+                  <form id="frmCadMaterial" method="POST" action="/envelhecimentoativo/project/controller/recebeMaterial.php?act=salvar" data-parsley-validate class="form-horizontal justify-content-center" enctype="multipart/form-data">
                      <input id="Id" name="Id" type="hidden">   
                      <!-- <input id="UsuarioId" name="UsuarioId" type="text" value="">   -->
                      <div class="form-group">                      
@@ -24,12 +24,11 @@
                         </label>            
                         <textarea rows="4" id="Descricao" name="Descricao" required="required" class="form-control"> </textarea>             
                      </div>
-                     <div class="form-group">  
+                     <div class="form-group">                          
+   
+                            <label class="control-label" for="Arquivo">Material:</label>
+                            <input type="file" name="Arquivo" id="Arquivo" />
 
-                        <label class="control-label" for="Arquivo">Selecione o Material:
-                        <span class="required">*</span>
-                        </label>            
-                        <input type="file" id="Arquivo" name="Arquivo" class="form-control-file">             
                 
                     </div>
                                        
@@ -48,7 +47,8 @@
       </div>
    </div>
 </div>
-
+<script src="/envelhecimentoativo/vendors/jquery/dist/jquery.min.js"></script>
+ 
 <script src="/envelhecimentoativo/project/js/materiais/index.js"></script>
 
 <!-- <div class="form-group">

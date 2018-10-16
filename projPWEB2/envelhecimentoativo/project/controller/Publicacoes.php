@@ -1,11 +1,10 @@
 <?php
     
+    //include_once '/envelhecimentoativo/project/model/Publicacoes.php';
+    //include_once '/envelhecimentoativo/project/DAO/publicacoesDAO.php';
+
     include_once 'C:\xampp\htdocs\envelhecimentoativo\project\model\Publicacoes.php';
     include_once 'C:\xampp\htdocs\envelhecimentoativo\project\DAO\publicacoesDAO.php';
-    
-    //require_once ('C:\xampp\htdocs\envelhecimentoativo\project\model\publicacoes.php');
-    //require_once ('C:\xampp\htdocs\envelhecimentoativo\project\DAO\publicacoesDAO.php');
-    //require_once ('C:\xampp\htdocs\envelhecimentoativo\project\DAO\conexao.php');
 
     class PublicacoesController{
 

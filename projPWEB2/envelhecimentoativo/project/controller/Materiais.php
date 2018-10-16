@@ -1,12 +1,11 @@
 <?php
     
+    //include_once '/envelhecimentoativo/project/model/Materiais.php';
+    //include_once '/envelhecimentoativo/project/DAO/materiaisDAO.php';
+    
     include_once 'C:\xampp\htdocs\envelhecimentoativo\project\model\Materiais.php';
     include_once 'C:\xampp\htdocs\envelhecimentoativo\project\DAO\materiaisDAO.php';
     
-    //require_once ('C:\xampp\htdocs\envelhecimentoativo\project\model\materiais.php');
-    //require_once ('C:\xampp\htdocs\envelhecimentoativo\project\DAO\materiaisDAO.php');
-    //require_once ('C:\xampp\htdocs\envelhecimentoativo\project\DAO\conexao.php');
-
     class MateriaisController{
 
 		function __construct(){
@@ -46,6 +45,7 @@
                 $material->setId($registro['Id']);
                 $material->setNome($registro['Nome']);
                 $material->setDescricao($registro['Descricao']);
+                $material->setArquivo($registro['Arquivo']);
                 $material->setDataEnvio($registro['DataEnvio']);
                 $material->setUsuarioId($registro['UsuarioId']);              
 
@@ -65,6 +65,7 @@
             $material->setNome($registro['Nome']);
             $material->setDescricao($registro['Descricao']);
             $material->setDataEnvio($registro['DataEnvio']);
+            $material->setArquivo($registro['Arquivo']);
             $material->setUsuarioId($registro['UsuarioId']);                  
 
             return $material;

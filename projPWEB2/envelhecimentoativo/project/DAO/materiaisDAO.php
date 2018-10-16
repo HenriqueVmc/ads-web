@@ -1,5 +1,6 @@
 <?php
     include_once 'conexao.php';
+    //include_once '/envelhecimentoativo/project/model/Materiais.php';    
     include_once 'C:\xampp\htdocs\envelhecimentoativo\project\model\Materiais.php';
 
 	class materiaisDAO{
@@ -13,7 +14,7 @@
         public function findAll(){
 
             $result = array();
-            $select = "SELECT Id, Nome, DataEnvio, Descricao, UsuarioId FROM materiais";
+            $select = "SELECT Id, Nome, DataEnvio, Descricao, Arquivo, UsuarioId FROM materiais";
             
             $pst = $this->_con->prepare($select);
             $pst->execute();
@@ -29,7 +30,7 @@
         public function findById($id){
             
             $result = array();
-            $select = "SELECT Id, Nome, Descricao, DataEnvio, UsuarioId FROM materiais WHERE Id = ?";
+            $select = "SELECT Id, Nome, Descricao, DataEnvio, Arquivo, UsuarioId FROM materiais WHERE Id = ?";
             
             $pst = $this->_con->prepare($select);
             $pst->execute(array($id));
@@ -59,12 +60,13 @@
         }
 
         public function update($material){
-            $update = "UPDATE materiais SET Nome = ?, Descricao = ?, DataEnvio = ?, UsuarioId = ? WHERE Id = ?";
+            $update = "UPDATE materiais SET Nome = ?, Descricao = ?, DataEnvio = ?, Arquivo = ?, UsuarioId = ? WHERE Id = ?";
 
             $pst = $this->_con->prepare($update);
             $pst->execute(array($material->getNome(),
                                 $material->getDescricao(),
                                 date("Y-m-d H:i:s"),
+                                $material->getArquivo(),
                                 $material->getUsuarioId(),
                                 $material->getId()));
 

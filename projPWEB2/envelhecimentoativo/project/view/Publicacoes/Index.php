@@ -32,8 +32,8 @@
                                     echo "<td>";
                                         echo $publicacao->getAssunto();
                                     echo "</td>";
-                                    echo "<td>";
-                                        echo $publicacao->getDataPublicacao();
+                                    echo "<td>";                                        
+                                        echo date("d/m/Y", strtotime($publicacao->getDataPublicacao()));
                                     echo "</td>";
                                     echo "<td>";
                                         echo "<a href='#' data-id='".$publicacao->getId()."' class='btn btn-success btnEditarPublicacao'>Editar</a>";

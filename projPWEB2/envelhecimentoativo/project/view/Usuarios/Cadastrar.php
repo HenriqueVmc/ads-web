@@ -52,6 +52,7 @@
                         </div>
                      </div>
                      <hr />
+                     <div class="row" id="frmProfissional"></div>                            
                      <div class="panel panel-default">
                         <h4 class="text-center">Endereço:</h4>
                         <div class="panel-body">
@@ -90,25 +91,7 @@
                               </div>
                            </div>
                         </div>
-                     </div>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-6 col-xs-6">            
-                               <label class="control-label" for="Curso">Curso:
-                                    <span class="required">*</span>
-                               </label>            
-                               <input type="text" id="Curso" name="Curso" required="required" class="form-control">  
-                            </div>
-                            <div class="col-md-6 col-xs-6">
-                                <label class="control-label" for="Instituicao">Instituição:
-                                    <span class="required">*</span>
-                                </label>            
-                                <input type="text" id="Instituicao" name="Instituicao" required="required" class="form-control">             
-                            </div>
-                        </div>
-                    </div>
-                 
+                     </div>                     
 
                      <div class="ln_solid"></div>
                      <div class="row">

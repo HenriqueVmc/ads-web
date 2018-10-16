@@ -1,5 +1,6 @@
 <?php
     include_once 'conexao.php';
+    //include_once '/envelhecimentoativo/project/model/Publicacoes.php';
     include_once 'C:\xampp\htdocs\envelhecimentoativo\project\model\Publicacoes.php';
 
 	class publicacoesDAO{

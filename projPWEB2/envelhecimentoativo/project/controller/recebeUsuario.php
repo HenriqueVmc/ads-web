@@ -1,9 +1,14 @@
 <?php
 
-    include_once 'C:\xampp\htdocs\envelhecimentoativo\project\controller\Usuarios.php';
-    //include_once '/envelhecimentoativo/project/controller/Usuarios.php';
-    include_once 'C:\xampp\htdocs\envelhecimentoativo\project\model\Usuarios.php';
+    //include_once 'Usuarios.php';
+    //include_once 'Profissionais.php';
     //include_once '/envelhecimentoativo/project/model/Usuarios.php';
+    //include_once '/envelhecimentoativo/project/model/Profissionais.php';
+    
+    include_once 'C:\xampp\htdocs\envelhecimentoativo\project\controller\Usuarios.php';
+    include_once 'C:\xampp\htdocs\envelhecimentoativo\project\controller\Profissionais.php';    
+    include_once 'C:\xampp\htdocs\envelhecimentoativo\project\model\Usuarios.php';
+    include_once 'C:\xampp\htdocs\envelhecimentoativo\project\model\Profissionais.php';    
     
     $id = $_POST['Id'];
     $nome = $_POST['Nome'];
@@ -13,10 +18,12 @@
     $senha = $_POST['Senha'];
     $perfilId = $_POST['PerfilId'];
 
-    //Validar Campos
+    //Para Perfil Profissional
+    $curso = $_POST['Curso'];
+    $instituicao = $_POST['Instituicao'];
 
-    $usuario = new Usuarios();
-    
+    //Validar Campos
+    $usuario = new Usuarios();    
     if (isset($id)) $usuario->setId($id);    
     if (isset($nome)) $usuario->setNome($nome);
     if (isset($cep)) $usuario->setCep($cep);
@@ -29,11 +36,28 @@
 
         $obj = new UsuariosController();
         $response = array("success" => false);
-    
-        if($obj->salvar($usuario)){
+        
+        $usuarioId = $obj->salvar($usuario);
+         
+        if($usuarioId > 0){
             $response = array("success" => true);        
         }
 
+        // CADASTRA PERFIL PROFISSIONAL (1:N)
+        if(isset($curso)){
+            $profissional = new Profissionais();
+            $profissional->setCurso($curso); 
+            $profissional->setInstituicao($instituicao);             
+            $profissional->setUsuarioId($usuarioId);
+            
+            $objP = new ProfissionaisController();
+            
+            $response = array("success" => false);
+        
+            if($objP->salvar($profissional)){
+                $response = array("success" => true);        
+            }   
+        }
         echo json_encode($response);
     }
 

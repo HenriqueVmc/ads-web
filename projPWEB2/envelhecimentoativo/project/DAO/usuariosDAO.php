@@ -1,7 +1,7 @@
 <?php
     include_once 'conexao.php';
-    include_once 'C:\xampp\htdocs\envelhecimentoativo\project\model\Usuarios.php';
     //include_once '/envelhecimentoativo/project/model/Usuarios.php';
+    include_once 'C:\xampp\htdocs\envelhecimentoativo\project\model\Usuarios.php';    
 
 	class usuariosDAO{
 		public $_con;
@@ -18,8 +18,6 @@
             
             $pst = $this->_con->prepare($select);
             $pst->execute();
-
-            //die(var_dump($r, $pst->errorInfo()));
 
             if($pst->rowCount() > 0){
                 $result = $pst->fetchAll();
@@ -53,11 +51,11 @@
                                 $usuario->getUsuario(),
                                 $usuario->getSenha(), 
                                 $usuario->getPerfilId()));
-                                                           
+                    
             if($pst->rowCount() > 0){
-                return true;
+                return $this->_con->lastInsertId();
             }
-            return false;	
+            return 0;	
         }
 
         public function update($usuario){

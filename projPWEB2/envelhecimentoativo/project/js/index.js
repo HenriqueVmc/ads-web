@@ -1,5 +1,5 @@
 $(function () {
-    var base_url = 'http://localhost:81/envelhecimentoativo/project/';
+    var base_url = 'http://localhost/envelhecimentoativo/project/';
     
     $("#menuCadUsuario").click(function () {
         getFrm(base_url+"view/Usuarios/Cadastrar.php");

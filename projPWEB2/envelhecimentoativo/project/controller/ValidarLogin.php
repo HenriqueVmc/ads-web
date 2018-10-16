@@ -1,4 +1,8 @@
 <?php
+    //include_once '/envelhecimentoativo/project/DAO/conexao.php';
+    //include_once '/envelhecimentoativo/project/model/Usuarios.php';
+    //include_once '/envelhecimentoativo/project/DAO/usuariosDAO.php'; 
+
     include_once 'C:\xampp\htdocs\envelhecimentoativo\project\DAO\conexao.php';
     include_once 'C:\xampp\htdocs\envelhecimentoativo\project\model\Usuarios.php';
     include_once 'C:\xampp\htdocs\envelhecimentoativo\project\DAO\usuariosDAO.php';    

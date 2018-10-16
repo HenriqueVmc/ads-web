@@ -1,4 +1,5 @@
  <?php
+     //include_once '/envelhecimentoativo/project/controller/Materiais.php';
      include_once 'C:\xampp\htdocs\envelhecimentoativo\project\controller\Materiais.php';
 
      if(isset($_POST['id'])){      
@@ -20,13 +21,13 @@
             <div class="x_content">
                <div class="col-md-3 col-xs-3"></div>
                <div class="col-md-6 col-sm-12 col-xs-6">
-                  <form id="frmCadMaterial" method="POST" action="/envelhecimentoativo/project/controller/recebeMaterial.php?act=editar" data-parsley-validate class="form-horizontal justify-content-center">
+                  <form id="frmCadMaterial" method="POST" action="/envelhecimentoativo/project/controller/recebeMaterial.php?act=editar" data-parsley-validate class="form-horizontal justify-content-center" enctype="multipart/form-data">
                      <input id="Id" name="Id" type="hidden" value="<?php echo $material->getId(); ?>">   
                      <div class="form-group">                      
                         <label class="control-label" for="Nome">Nome:
                         <span class="required">*</span>
                         </label>            
-                        <input type="text" id="Nome" name="Nome" required="required" class="form-control" value="<?php echo $material->getNome(); ?>">             
+                        <input type="text" id="Nome" name="Nome" required="required" class="form-control" value="<?php echo $material->getNome(); ?>" />             
                      </div>
 
                      <div class="form-group">                      
@@ -40,7 +41,7 @@
                         <label class="control-label" for="Arquivo">Selecione o Material:
                         <span class="required">*</span>
                         </label>            
-                        <input type="file" id="Arquivo" name="Arquivo" class="form-control-file">             
+                        <input type="file" id="Arquivo" name="Arquivo" class="form-control-file" value="<?php echo $material->getArquivo(); ?>" />             
                 
                     </div>
                                        

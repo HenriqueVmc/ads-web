@@ -1,5 +1,5 @@
 $(function () {
-    var base_url = 'http://localhost:81/envelhecimentoativo/project/';
+    var base_url = 'http://localhost/envelhecimentoativo/project/';
 
     // debugger;
     // $("#btnCadUsuario").click(function () {    
@@ -61,5 +61,25 @@ $(function () {
                 alert("Erro ao remover!");
             }
         });   
+   });
+
+   $("#PerfilId").on('change', function() {
+       debugger;
+        if($(this).val() == "2" || $(this).val() == "Profissional"){
+            $("#frmProfissional").html("<div class='form-group'>"+
+                                            "<h4 class='text-center'>Dados profissionais</h4>"+
+                                            "<div class='col-md-12 col-xs-12'>"+
+                                                "<label class='control-label' for='Curso'>Curso:<span class='required'>*</span></label>"+
+                                                "<input type='text' id='Curso' name='Curso' required='required' class='form-control >"+
+                                            "</div>"+
+                                            "<div class='col-md-6 col-xs-6'>"+
+                                                "<label class='control-label' for='Instituicao'>Instituição:<span class='required'>*</span></label>"+
+                                                "<input type='text' id='Instituicao' name='Instituicao' required='required' class='form-control'>"+
+                                            "</div>"+
+                                        "</div><br />"
+            );
+        }else{
+            $("#frmProfissional").html("");
+        }
    });
 });

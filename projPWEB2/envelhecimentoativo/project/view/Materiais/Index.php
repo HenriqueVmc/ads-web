@@ -16,17 +16,24 @@
                             <th>Descricao</th>
                             <th>Data de Envio</th>
                             <th>Arquivo</th>
-                            <th>Ações</th>
+                            <?php 
+                                session_start(); 
+                                if($_SESSION['perfilId'] != 3){ echo '<th>Ações</th>'; } 
+                            ?>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                            //include_once '/envelhecimentoativo/project/controller/Materiais.php';
                             include_once 'C:\xampp\htdocs\envelhecimentoativo\project\controller\Materiais.php';
                             
                             $obj = new MateriaisController();                           
                             $materiais = $obj->buscarTodos();                                                    
                             
                            foreach($materiais as $material){
+                                $arquivo = $material->getArquivo();
+                                $nomeArquivo = str_replace("/envelhecimentoativo/uploads/", "", $arquivo);
+                                
                                 echo "<tr>";
                                     echo "<td>";
                                         echo $material->getId();
@@ -38,15 +45,18 @@
                                         echo $material->getDescricao();
                                     echo "</td>";
                                     echo "<td>";
-                                        echo $material->getDataEnvio();
+                                        echo date("d/m/Y", strtotime($material->getDataEnvio()));                                                                            
                                     echo "</td>";
                                     echo "<td>";
-                                        echo "[...]";
+                                        echo "<a href='".$arquivo."' download>".$nomeArquivo."</a>";                    
                                     echo "</td>";
-                                    echo "<td>";
-                                        echo "<a href='#' data-id='".$material->getId()."' class='btn btn-success btnEditarMaterial'>Editar</a>";
-                                        echo "<a href='#' data-id='".$material->getId()."' class='btn btn-danger btnRemoverMaterial'>Remover</a>";
-                                    echo "</td>";
+
+                                    if($_SESSION['perfilId'] != 3){                              
+                                        echo "<td>";
+                                            echo "<a href='#' data-id='".$material->getId()."' class='btn btn-success btnEditarMaterial'>Editar</a>";
+                                            echo "<a href='#' data-id='".$material->getId()."' class='btn btn-danger btnRemoverMaterial'>Remover</a>";
+                                        echo "</td>";
+                                    }
                                 echo "</tr>";
                             }
                         ?>
@@ -58,7 +68,9 @@
                             <th>Descricao</th>
                             <th>Data de Envio</th>
                             <th>Arquivo</th>
-                            <th>Ações</th>
+                            <?php 
+                                if($_SESSION['perfilId'] != 3){ echo '<th>Ações</th>'; } 
+                            ?>
                         </tr>
                     </tfoot>
                </table>

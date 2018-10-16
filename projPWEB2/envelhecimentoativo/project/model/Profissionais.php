@@ -22,11 +22,18 @@
             $this->_curso = $curso;
         }
         
+        function getInstituicao(){
+            return $this->_instituicao;
+        }
+        function setInstituicao($instituicao){
+            $this->_instituicao = $instituicao;
+        }
+
         function getUsuarioId(){
             return $this->_usuarioId;
         }
         function setUsuarioId($usuario){
-            $this->_usuario = $usuario;
+            $this->_usuarioId = $usuario;
         }
     }
 ?>
